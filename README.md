@@ -1,4 +1,4 @@
- E-Commerce Backend API
+## ✨ COURSE FINDER API
 
 A Spring Boot application that integrates with **Elasticsearch** to index and search educational course data with rich filters and full-text capabilities.
 
@@ -58,6 +58,7 @@ Build and start the Spring Boot application:
 ```bash
 mvn clean install
 mvn spring-boot:run
+```
 
 ## 📦 Sample Data Format
 
@@ -68,6 +69,7 @@ src/main/resources/sample-courses.json
 ```
 
 Each object must have 
+```
 {
   "id": "string",                  // Unique course identifier
   "title": "string",              // Course title
@@ -108,7 +110,7 @@ GET /api/search
 
 | Name         | Type     | Description                                        |
 |--------------|----------|----------------------------------------------------|
-| `q`          | string   | Search keyword (title + description)               |
+| `keyword`    | string   | Search keyword (title + description)               |
 | `category`   | string   | Exact match category filter                        |
 | `type`       | string   | One of: `COURSE`, `ONE_TIME`, `CLUB`               |
 | `minAge`     | int      | Minimum age                                        |
@@ -123,7 +125,7 @@ GET /api/search
 ### Example:
 
 ```bash
-curl "http://localhost:8080/api/search?q=science&category=Science&minAge=8&maxPrice=1500&sort=priceAsc&page=0&size=5"
+curl "http://localhost:8080/api/search?keyword=science&category=Science&minAge=8&maxPrice=1500&sort=priceAsc&page=0&size=5"
 ```
 
 ---
@@ -156,7 +158,8 @@ src/main/java/com/yourapp/
 ├── document/       # CourseDocument model
 ├── repository/     # Custom ES query repository
 ├── service/        # Search service logic
-└── util/           # Helper utilities (if any)
+├── request/        # Accept query/filter parameters
+└── response/       # Return filtered course results
 ```
 
 ---
