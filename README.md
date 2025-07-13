@@ -1,4 +1,4 @@
-coursefinder-api
+ E-Commerce Backend API
 
 A Spring Boot application that integrates with **Elasticsearch** to index and search educational course data with rich filters and full-text capabilities.
 
